@@ -5,6 +5,9 @@
 }
 
 body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
   color: #2b2c48;
   font-family: "Jost", sans-serif;
   background-image: url(https://images.unsplash.com/photo-1566738780863-f9608f88f3a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80);
@@ -185,14 +188,8 @@ body {
   margin-bottom: 30px;
 }
 
-.card-social svg {
-  fill: #a5b5ce;
-  width: 16px;
-  display: block;
-  transition: 0.3s;
-}
-
 .card-social a {
+  margin-inline-start: 10%;
   color: #8797a1;
   height: 32px;
   width: 32px;
@@ -206,7 +203,7 @@ body {
   margin-right: 10px;
 }
 
-.card-social a:hover i {
+.card-social a:hover {
   fill: #637faa;
 }
 
@@ -375,7 +372,7 @@ body {
   padding: 12px 16px;
   width: 100%;
   border-radius: 5px;
-  margin-top: 25px;
+  margin-top: 23px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
