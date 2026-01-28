@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Facebook, Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { Social } from '../types/types';
 
 export const socials: Social[] = [
