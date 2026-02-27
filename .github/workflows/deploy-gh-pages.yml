@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and export
+        env:
+          # Optionally set these repository secrets if you are deploying to a project page
+          # e.g. NEXT_PUBLIC_BASE_PATH=/your-repo-name and NEXT_PUBLIC_ASSET_PREFIX=/your-repo-name
+          NEXT_PUBLIC_BASE_PATH: ${{ secrets.NEXT_PUBLIC_BASE_PATH }}
+          NEXT_PUBLIC_ASSET_PREFIX: ${{ secrets.NEXT_PUBLIC_ASSET_PREFIX }}
+        run: npm run build:export
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages
+
