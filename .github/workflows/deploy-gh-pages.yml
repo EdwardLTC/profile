@@ -28,10 +28,10 @@ jobs:
 
       - name: Build
         env:
-          # Optionally set these repository secrets if you are deploying to a project page
-          # e.g. NEXT_PUBLIC_BASE_PATH=/your-repo-name and NEXT_PUBLIC_ASSET_PREFIX=/your-repo-name
-          NEXT_PUBLIC_BASE_PATH: ${{ secrets.NEXT_PUBLIC_BASE_PATH }}
-          NEXT_PUBLIC_ASSET_PREFIX: ${{ secrets.NEXT_PUBLIC_ASSET_PREFIX }}
+          # By default build for a GitHub project page at https://<username>.github.io/profile
+          # You can override these by adding repository secrets NEXT_PUBLIC_BASE_PATH and NEXT_PUBLIC_ASSET_PREFIX
+          NEXT_PUBLIC_BASE_PATH: ${{ secrets.NEXT_PUBLIC_BASE_PATH || '/profile' }}
+          NEXT_PUBLIC_ASSET_PREFIX: ${{ secrets.NEXT_PUBLIC_ASSET_PREFIX || '/profile' }}
         run: npm run build
 
       - name: Deploy to GitHub Pages
