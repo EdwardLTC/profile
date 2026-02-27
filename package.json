@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "export": "next export",
-    "build:export": "next build && next export",
+    "export": "",
+    "build:export": "next build",
     "preview:out": "npx serve out -s -l 3000",
     "start": "next start",
     "lint": "next lint",

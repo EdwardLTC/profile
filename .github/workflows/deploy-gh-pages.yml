@@ -26,13 +26,13 @@ jobs:
             npm install --no-audit --no-fund
           fi
 
-      - name: Build and export
+      - name: Build
         env:
           # Optionally set these repository secrets if you are deploying to a project page
           # e.g. NEXT_PUBLIC_BASE_PATH=/your-repo-name and NEXT_PUBLIC_ASSET_PREFIX=/your-repo-name
           NEXT_PUBLIC_BASE_PATH: ${{ secrets.NEXT_PUBLIC_BASE_PATH }}
           NEXT_PUBLIC_ASSET_PREFIX: ${{ secrets.NEXT_PUBLIC_ASSET_PREFIX }}
-        run: npm run build:export
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -40,4 +40,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
           publish_branch: gh-pages
-
