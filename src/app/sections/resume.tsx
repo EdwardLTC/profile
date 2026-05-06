@@ -238,7 +238,10 @@ const Resume: React.FC = () => {
                           <strong className="text-white font-semibold">MyFPL</strong> — App for
                           students to register for school services and view grades.
                         </>,
-                        <>IoT device management app for school environments.</>,
+                        <>
+                          <strong className="text-white font-semibold">FPL Save Electricity</strong> — App for
+                          IoT device management app for school environments.
+                        </>,
                       ].map((item, idx) => (
                         <li key={idx} className="flex gap-3">
                           <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
