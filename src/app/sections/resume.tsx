@@ -239,8 +239,8 @@ const Resume: React.FC = () => {
                           students to register for school services and view grades.
                         </>,
                         <>
-                          <strong className="text-white font-semibold">FPL Save Electricity</strong> — App for
-                          IoT device management app for school environments.
+                          <strong className="text-white font-semibold">FPL Save Electricity</strong>{' '}
+                          — App for IoT device management app for school environments.
                         </>,
                       ].map((item, idx) => (
                         <li key={idx} className="flex gap-3">
