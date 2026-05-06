@@ -14,13 +14,16 @@
  * limitations under the License.
  */
 
+'use client';
+
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowRight, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { portfolioConfig } from '@/app/config';
 import { Button } from '@/app/components/button';
 import dynamic from 'next/dynamic';
 import { isMinimal } from '@/app/utils';
+import { useRouter } from 'next/navigation';
 
 const TechSphere = dynamic(
   async () => {
@@ -39,11 +42,13 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
   const config = portfolioConfig.sections.home;
+  const router = useRouter();
 
   // For the typing effect
   const [text, setText] = useState('');
   const [index, setIndex] = useState(0);
   const [currentPhrase, setCurrentPhrase] = useState(0);
+  const [isNavigatingResume, setIsNavigatingResume] = useState(false);
 
   // Handle typing effect
   useEffect(() => {
@@ -64,6 +69,16 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
       return () => clearTimeout(timeout);
     }
   }, [index, currentPhrase, config.typingTexts]);
+
+  const onResumeClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    if (isNavigatingResume) return;
+
+    setIsNavigatingResume(true);
+    window.setTimeout(() => {
+      router.push('/resume');
+    }, 520);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -89,6 +104,37 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
       id="home"
       className="min-h-screen w-full flex items-center relative pt-24 md:pt-24 lg:pt-16 pb-16 md:pb-12 overflow-hidden"
     >
+      <AnimatePresence>
+        {isNavigatingResume && (
+          <motion.div
+            className="fixed inset-0 z-[60] pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.95 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            />
+            <motion.div
+              className="absolute inset-0"
+              initial={{ scale: 1, filter: 'blur(0px)' }}
+              animate={{ scale: 1.04, filter: 'blur(3px)' }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            />
+            <motion.div
+              className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent"
+              initial={{ opacity: 0, y: -2 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient background with mesh pattern */}
@@ -131,7 +177,15 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 flex items-center h-full">
+      <motion.div
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 flex items-center h-full"
+        animate={
+          isNavigatingResume
+            ? { opacity: 0, y: -6, scale: 0.99, filter: 'blur(1px)' }
+            : { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }
+        }
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center w-full">
           {/* Main content area */}
           <motion.div
@@ -189,26 +243,12 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6"
             >
               <Button
-                href="https://github.com/EdwardLTC/profile/blob/0edbd1f4173a95093565395d93e093afef9c67a3/public/resume.pdf?raw=true"
-                label="Download Resume"
-                icon={
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
-                    />
-                  </svg>
-                }
+                href="/resume"
+                label="View Resume"
+                icon={<ArrowUpRight size={18} />}
                 variant="primary"
                 iconType="default"
+                onClick={onResumeClick}
               />
 
               <Button
@@ -236,7 +276,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
             </motion.div>
           )}
         </div>
-      </div>
+      </motion.div>
 
       {/* Scroll indicator */}
       <motion.div
