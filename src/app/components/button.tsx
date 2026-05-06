@@ -27,6 +27,7 @@ interface ButtonProps {
   onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
   target?: string;
   rel?: string;
+  download?: boolean | string;
   iconType?: 'arrow' | 'default';
   className?: string;
 }
@@ -39,6 +40,7 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   target,
   rel,
+  download,
   iconType = 'default',
   className = '',
 }) => {
@@ -61,7 +63,7 @@ export const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       target={target}
       rel={rel}
-      download={false}
+      download={download}
       className={`${baseClasses} ${variantClasses[variant]} ${className} inline-flex transition-transform duration-300`}
     >
       <span className="flex items-center">

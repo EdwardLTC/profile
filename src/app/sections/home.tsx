@@ -20,7 +20,7 @@ import { ChevronDown, ArrowRight } from 'lucide-react';
 import { portfolioConfig } from '@/app/config';
 import { Button } from '@/app/components/button';
 import dynamic from 'next/dynamic';
-import { isMinimal } from '@/app/utils';
+import { isMinimal, withBasePath } from '@/app/utils';
 
 const TechSphere = dynamic(
   async () => {
@@ -189,7 +189,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6"
             >
               <Button
-                href="/resume.pdf"
+                href={withBasePath('/resume.pdf')}
                 label="Download Resume"
                 icon={
                   <svg
@@ -209,6 +209,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
                 }
                 variant="primary"
                 iconType="default"
+                download
               />
 
               <Button
