@@ -42,12 +42,12 @@ export const portfolioConfig: PortfolioConfig = {
       subtitle: 'Me',
       bio: [
         "Hi, I'm a Software Engineering enthusiast living in Việt Nam. I enjoy turning creative ideas into working solutions in my spare time.",
-        "I've been exploring tech for about 2 years, with interests spanning across different development areas. I'm fascinated by intuitive digital experiences that just feel right.",
+        "I've been exploring tech for about 4 years, with interests spanning across different development areas. I'm fascinated by intuitive digital experiences that just feel right.",
         "When I'm not working on code professionally, you'll find me reading about emerging technologies, contributing to open-source projects, and constantly picking up new skills and hobbies.",
       ],
       details: [
         { label: 'Location', value: 'Hồ Chí Minh City, Việt Nam' },
-        { label: 'Experience', value: '2+ Years Experience' },
+        { label: 'Experience', value: '4+ Years Experience' },
       ],
       qualities: [
         {
