@@ -16,11 +16,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { portfolioConfig } from '@/app/config';
 import { Button } from '@/app/components/button';
 import dynamic from 'next/dynamic';
-import { isMinimal, withBasePath } from '@/app/utils';
+import { isMinimal } from '@/app/utils';
 
 const TechSphere = dynamic(
   async () => {
@@ -189,7 +189,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6"
             >
               <Button
-                href={withBasePath('/resume.pdf')}
+                href="https://github.com/EdwardLTC/profile/blob/0edbd1f4173a95093565395d93e093afef9c67a3/public/resume.pdf?raw=true"
                 label="Download Resume"
                 icon={
                   <svg
@@ -209,7 +209,6 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
                 }
                 variant="primary"
                 iconType="default"
-                download
               />
 
               <Button
