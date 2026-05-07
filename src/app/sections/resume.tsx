@@ -340,7 +340,7 @@ const Resume: React.FC = () => {
                       ].map(tag => (
                         <span
                           key={tag}
-                          className="px-3 py-1 text-xs rounded-full border bg-gray-800/70 text-gray-300 border-gray-700/60"
+                          className="px-3 py-1 text-xs rounded-full border bg-emerald-500/10 text-emerald-300 border-emerald-500/20"
                         >
                           {tag}
                         </span>

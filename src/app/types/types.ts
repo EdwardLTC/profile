@@ -48,6 +48,18 @@ export interface Project {
   /** Short description of the project */
   description: string;
 
+  /** Your role or responsibility on the project */
+  role?: string;
+
+  /** Main problem or goal the project addresses */
+  problem?: string;
+
+  /** Important implementation details or responsibilities */
+  highlights?: string[];
+
+  /** Outcome, learning, or business/technical value */
+  impact?: string;
+
   /** Technologies and skills used in the project */
   tags: string[];
 
@@ -60,13 +72,13 @@ export interface Project {
   /** Optional live demo or deployment link */
   liveLink?: string;
 
-  /** Project thumbnail or cover image */
-  thumbnail: string;
+  /** Optional project thumbnail or cover image */
+  thumbnail?: string;
 
   /** Optional GIF that plays on hover */
   gifUrl?: string;
 
-  /** Optional array of images for carousel */
+  /** Optional array of images for the carousel */
   carouselImages?: string[];
 
   /** Carousel configuration */
