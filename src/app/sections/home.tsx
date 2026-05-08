@@ -75,9 +75,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
     if (isNavigatingResume) return;
 
     setIsNavigatingResume(true);
-    window.setTimeout(() => {
-      router.push('/resume');
-    }, 520);
+    router.push('/resume');
   };
 
   const containerVariants = {
