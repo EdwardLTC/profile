@@ -371,7 +371,7 @@ const Resume: React.FC = () => {
                         <>
                           Specialization: Information Technology
                           <br />
-                          Thesis: <em>NFT Marketplace</em>
+                          Thesis: <em>MetaChain - NFT Marketplace</em>
                         </>
                       ),
                     },
