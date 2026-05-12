@@ -23,12 +23,67 @@ export const resumeContent: ResumeContent = {
   },
 
   sectionTitles: {
+    careerPath: "Where I'm headed",
     experience: 'Experience',
     projects: 'Projects',
     education: 'Education',
     skills: 'Skills',
     languages: 'Languages',
     awards: 'Awards',
+  },
+
+  careerPath: {
+    lines: [
+      [
+        { kind: 'strong', text: 'Next five years — target position' },
+        {
+          kind: 'text',
+          text: ': I aim to grow from ',
+        },
+        { kind: 'strong', text: 'Junior Lead Backend Engineer' },
+        {
+          kind: 'text',
+          text: ' into a ',
+        },
+        { kind: 'strong', text: 'Senior Backend / Backend Tech Lead' },
+        {
+          kind: 'text',
+          text: ' role (IC-first) where I own a major product surface or shared platform area—features, reliability, cost, and safe evolution across services—not just tickets.',
+        },
+      ],
+      [
+        { kind: 'text', text: 'I want my seat at the table to be ' },
+        { kind: 'strong', text: 'trusted technical authority' },
+        {
+          kind: 'text',
+          text: ': shaping backend roadmaps with product, setting review standards for APIs and data changes, and leading the hardest integration and payout-style work.',
+        },
+      ],
+      [
+        { kind: 'text', text: 'I plan to widen influence to ' },
+        { kind: 'strong', text: 'cross-team architecture' },
+        {
+          kind: 'text',
+          text: '—RFCs, migration plans, and incident learnings that raise the bar beyond my immediate squad, while staying accountable for production outcomes.',
+        },
+      ],
+      [
+        { kind: 'text', text: 'I expect to keep ' },
+        { kind: 'strong', text: 'hands-on coding' },
+        {
+          kind: 'text',
+          text: ' as a default, with more time on design reviews, mentoring mid-level engineers, and hiring support—without drifting into a purely meeting-only role.',
+        },
+      ],
+      [
+        { kind: 'text', text: 'I see myself anchored in ' },
+        { kind: 'strong', text: 'high-trust domains' },
+        {
+          kind: 'text',
+          text: ' (finance/insurance-style or similar): correctness, auditability, and partner ecosystems stay central to how I am measured, not only velocity.',
+        },
+      ],
+    ],
   },
 
   experience: [

@@ -61,12 +61,17 @@ export interface ResumeContent {
     contacts: ResumeContact[];
   };
   sectionTitles: {
+    careerPath: string;
     experience: string;
     projects: string;
     education: string;
     skills: string;
     languages: string;
     awards: string;
+  };
+  /** Target position and scope over the next ~5 years (IC-first trajectory, not a work history). */
+  careerPath: {
+    lines: ResumeRichLine[];
   };
   experience: ResumeExperience[];
   projects: ResumeProject[];

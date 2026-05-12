@@ -46,8 +46,18 @@ function ContactRow({ contact }: { contact: ResumeContact }) {
 }
 
 const Resume: React.FC = () => {
-  const { header, sectionTitles, experience, projects, education, skillGroups, languages, awards, footer } =
-    resumeContent;
+  const {
+    header,
+    sectionTitles,
+    careerPath,
+    experience,
+    projects,
+    education,
+    skillGroups,
+    languages,
+    awards,
+    footer,
+  } = resumeContent;
 
   const container = {
     hidden: { opacity: 0 },
@@ -119,6 +129,28 @@ const Resume: React.FC = () => {
               ))}
             </div>
           </motion.header>
+
+          <motion.section
+            className="border-b border-gray-700/50 px-6 py-8 sm:px-10 bg-gray-900/15"
+            variants={fadeUp}
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300">
+                {sectionTitles.careerPath}
+              </div>
+              <div className="h-px flex-1 bg-gradient-to-r from-gray-700/70 to-transparent" />
+            </div>
+            <ul className="space-y-2.5 text-sm text-gray-300">
+              {careerPath.lines.map((line, idx) => (
+                <li key={idx} className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
+                  <span className="leading-relaxed">
+                    <ResumeRichInline parts={line} />
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </motion.section>
 
           <motion.div className="grid grid-cols-1 lg:grid-cols-12" variants={fadeUp}>
             <main className="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-gray-700/50 px-6 py-8 sm:px-10">
