@@ -10,6 +10,7 @@ import { MobileNavBar } from '@/app/sections/mobile-navbar';
 import { NavBar } from '@/app/sections/navbar';
 import { Menu, X } from 'lucide-react';
 import { Projects } from '@/app/sections/projects';
+import { ThemeToggle } from '@/app/components/theme-toggle';
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState('home');
@@ -66,7 +67,7 @@ export default function Page() {
   if (!mounted) return null;
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen text-gray-200">
+    <div className="bg-gradient-to-br from-page-from via-page-via to-page-to min-h-screen text-foreground">
       <Head>
         <title>Edward LTC | Portfolio</title>
         <meta
@@ -75,11 +76,12 @@ export default function Page() {
         />
       </Head>
 
-      <div className="fixed top-3.5 right-6 z-50 lg:hidden">
+      <div className="fixed top-3.5 right-6 z-50 flex items-center gap-2 lg:hidden">
+        <ThemeToggle />
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
-          className="p-2 bg-gray-800/80 backdrop-blur-sm rounded-full text-gray-100 shadow-lg border border-gray-700/50"
+          className="p-2 bg-muted/80 backdrop-blur-sm rounded-full text-foreground shadow-lg border border-border/80"
         >
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>

@@ -40,7 +40,7 @@ const Logo: React.FC = () => {
 
       {/* Initials */}
       <motion.span
-        className="text-l font-bold"
+        className="text-xl font-bold text-foreground"
         initial={{ scale: 0.7, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.1 }}

@@ -43,6 +43,11 @@ export default {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        page: {
+          from: 'hsl(var(--page-from))',
+          via: 'hsl(var(--page-via))',
+          to: 'hsl(var(--page-to))',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',

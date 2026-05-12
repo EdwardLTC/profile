@@ -73,7 +73,7 @@ const About = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.5 }}
         >
-          <h2 id="about-title" className="text-3xl md:text-4xl font-bold text-white">
+          <h2 id="about-title" className="text-3xl md:text-4xl font-bold text-foreground">
             {config.title}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
               {config.subtitle}
@@ -92,13 +92,13 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="h-full"
           >
-            <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-emerald-500/30 transition-all duration-300 shadow-xl h-full relative overflow-hidden">
-              <h3 className="text-2xl font-semibold text-white mb-6 relative">My Journey</h3>
+            <div className="bg-card/70 backdrop-blur-sm rounded-2xl p-8 border border-border/80 hover:border-emerald-500/30 transition-all duration-300 shadow-xl h-full relative overflow-hidden">
+              <h3 className="text-2xl font-semibold text-foreground mb-6 relative">My Journey</h3>
 
               {/* Bio paragraphs */}
               <div className="space-y-4 relative">
                 {config.bio.map((paragraph, index) => (
-                  <p key={index} className="text-gray-300 leading-relaxed">
+                  <p key={index} className="text-muted-foreground leading-relaxed">
                     {paragraph}
                   </p>
                 ))}
@@ -109,7 +109,7 @@ const About = () => {
                 {config.details.map((detail, index) => (
                   <span
                     key={index}
-                    className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-700/50 text-gray-300 border border-gray-600/50"
+                    className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-muted/80 text-muted-foreground border border-border/80"
                   >
                     <span className="w-2 h-2 rounded-full bg-emerald-500 mr-2" />
                     {detail.value}
@@ -132,7 +132,7 @@ const About = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="bg-gray-800/40 backdrop-blur-sm rounded-2xl border border-gray-700/50 shadow-xl overflow-hidden relative h-full group hover:border-emerald-500/30 transition-all duration-300"
+                  className="bg-card/70 backdrop-blur-sm rounded-2xl border border-border/80 shadow-xl overflow-hidden relative h-full group hover:border-emerald-500/30 transition-all duration-300"
                 >
                   <div className="p-6 relative">
                     {/* Gradient circle behind icon */}
@@ -142,13 +142,13 @@ const About = () => {
 
                     {/* Icon with gradient background */}
                     <div
-                      className={`w-12 h-12 rounded-full bg-gradient-to-r ${quality.gradient} flex items-center justify-center text-white mb-4`}
+                      className={`w-12 h-12 rounded-full bg-gradient-to-r ${quality.gradient} flex items-center justify-center text-primary-foreground mb-4`}
                     >
                       {getIconComponent(quality.icon)}
                     </div>
 
-                    <h4 className="text-lg font-semibold text-white mb-2">{quality.title}</h4>
-                    <p className="text-gray-300 text-sm">{quality.description}</p>
+                    <h4 className="text-lg font-semibold text-foreground mb-2">{quality.title}</h4>
+                    <p className="text-muted-foreground text-sm">{quality.description}</p>
                   </div>
                 </motion.div>
               ))}

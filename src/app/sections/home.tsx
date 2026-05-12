@@ -112,7 +112,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
             <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800"
+              className="absolute inset-0 bg-gradient-to-br from-page-from via-page-via to-page-to"
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.95 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -136,7 +136,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient background with mesh pattern */}
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted" />
 
         {/* Subtle grid */}
         <div
@@ -197,7 +197,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
               className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-tight"
               variants={itemVariants}
             >
-              <span className="text-white">{config.greeting} </span>
+              <span className="text-foreground">{config.greeting} </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
                 {config.name}
               </span>
@@ -208,7 +208,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
               <div className="relative h-full flex items-center justify-center lg:justify-start">
                 {isMinimal ? (
                   // For mobile
-                  <span className="text-xl sm:text-2xl text-gray-300 flex justify-center flex-wrap">
+                  <span className="text-xl sm:text-2xl text-muted-foreground flex justify-center flex-wrap">
                     <span className="mr-2">I&apos;m passionate about</span>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
                       {config.typingTexts[0]}
@@ -216,7 +216,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
                   </span>
                 ) : (
                   // For desktop
-                  <span className="text-xl sm:text-2xl text-gray-300 flex flex-wrap">
+                  <span className="text-xl sm:text-2xl text-muted-foreground flex flex-wrap">
                     <span className="mr-2">I&apos;m passionate about</span>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
                       {text}
@@ -230,7 +230,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 mb-8"
+              className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-8"
             >
               {config.description}
             </motion.p>
@@ -270,7 +270,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
               {/* TechSphere component */}
               <TechSphere />
 
-              <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-48 h-12 bg-gradient-to-t from-gray-900 to-transparent blur-lg"></div>
+              <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-48 h-12 bg-gradient-to-t from-background to-transparent blur-lg"></div>
             </motion.div>
           )}
         </div>
@@ -283,9 +283,9 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
       >
-        <span className="text-gray-400 text-sm mb-2">{config.scrollIndicatorText}</span>
+        <span className="text-muted-foreground text-sm mb-2">{config.scrollIndicatorText}</span>
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-          <ChevronDown className="text-emerald-400" size={24} />
+          <ChevronDown className="text-emerald-600 dark:text-emerald-400" size={24} />
         </motion.div>
       </motion.div>
     </section>

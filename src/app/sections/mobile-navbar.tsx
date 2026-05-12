@@ -49,7 +49,7 @@ const MobileNavBar: React.FC<MobileNavBarProps> = ({ menuOpen, activeSection, se
         >
           {/* Backdrop with blur effect */}
           <motion.div
-            className="absolute inset-0 bg-gray-900/95 backdrop-blur-lg"
+            className="absolute inset-0 bg-background/95 backdrop-blur-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -69,11 +69,11 @@ const MobileNavBar: React.FC<MobileNavBarProps> = ({ menuOpen, activeSection, se
                   <a
                     href={`#${link.href}`}
                     onClick={handleLinkClick}
-                    className={`text-3xl font-medium transition-all duration-300 hover:text-emerald-400 relative
+                    className={`text-3xl font-medium transition-all duration-300 hover:text-emerald-600 dark:hover:text-emerald-400 relative
                       ${
                         activeSection === link.href
-                          ? 'text-emerald-400 font-semibold'
-                          : 'text-gray-200'
+                          ? 'text-emerald-600 dark:text-emerald-400 font-semibold'
+                          : 'text-foreground'
                       }`}
                   >
                     {link.label}

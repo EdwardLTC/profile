@@ -68,7 +68,7 @@ const ConnectWithMe: React.FC = () => {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="block h-full bg-gray-800/40 backdrop-blur-sm rounded-2xl border border-gray-700/50 hover:border-opacity-0 transition-all duration-300 overflow-hidden group relative"
+            className="block h-full bg-card/70 backdrop-blur-sm rounded-2xl border border-border/80 hover:border-opacity-0 transition-all duration-300 overflow-hidden group relative"
             style={{
               boxShadow: `0 8px 16px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(${rgbColor}, 0.1)`,
             }}
@@ -100,7 +100,7 @@ const ConnectWithMe: React.FC = () => {
               </div>
 
               {/* Platform name */}
-              <span className="text-l font-medium text-white mb-1">{link.name}</span>
+              <span className="text-lg font-medium text-foreground mb-1">{link.name}</span>
             </div>
           </a>
         </motion.div>
@@ -124,14 +124,14 @@ const ConnectWithMe: React.FC = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Connect{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
               With Me
             </span>
           </h2>
           <div className="mt-4 h-1 w-20 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full" />
-          <p className="mt-6 text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
             Feel free to connect with me on these platforms to discuss tech, share ideas, or just
             say hello!
           </p>

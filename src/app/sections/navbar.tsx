@@ -18,6 +18,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioConfig } from '@/app/config';
 import { Logo } from '@/app/components/logo';
+import { ThemeToggle } from '@/app/components/theme-toggle';
 
 interface NavBarProps {
   activeSection: string;
@@ -33,22 +34,22 @@ const NavBar: React.FC<NavBarProps> = ({ activeSection, onSectionNav }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-40 bg-gray-800/30 backdrop-blur-md border-b border-gray-700/30">
+    <nav className="fixed top-0 left-0 w-full z-40 bg-background/70 backdrop-blur-md border-b border-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo Section */}
           <div className="flex-shrink-0">
             <a
               onClick={e => onSectionNav(e, 'home')}
-              className="font-medium text-xl tracking-wider text-gray-100"
+              className="font-medium text-xl tracking-wider text-foreground"
             >
               <Logo />
             </a>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:block">
-            <div className="ml-10 flex items-center space-x-8">
+          <div className="hidden lg:flex items-center gap-6">
+            {/* Desktop Navigation */}
+            <div className="flex items-center space-x-8">
               {links.map((link, index) => (
                 <motion.a
                   key={link.href}
@@ -63,14 +64,19 @@ const NavBar: React.FC<NavBarProps> = ({ activeSection, onSectionNav }) => {
                   className={`
                     transition-all 
                     duration-300 
-                    hover:text-emerald-400 
-                    ${activeSection === link.href ? 'text-emerald-400' : 'text-gray-300'}
+                    hover:text-emerald-600 dark:hover:text-emerald-400 
+                    ${
+                      activeSection === link.href
+                        ? 'text-emerald-600 dark:text-emerald-400'
+                        : 'text-muted-foreground'
+                    }
                   `}
                 >
                   {link.label}
                 </motion.a>
               ))}
             </div>
+            <ThemeToggle />
           </div>
         </div>
       </div>

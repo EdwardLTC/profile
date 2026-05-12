@@ -87,7 +87,22 @@ const cloudProps = {
   },
 };
 
-const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
+function useIconCloudTheme(): 'light' | 'dark' {
+  const [dark, setDark] = useState(true);
+
+  useEffect(() => {
+    const el = document.documentElement;
+    const read = () => setDark(el.classList.contains('dark'));
+    read();
+    const obs = new MutationObserver(read);
+    obs.observe(el, { attributes: true, attributeFilter: ['class'] });
+    return () => obs.disconnect();
+  }, []);
+
+  return dark ? 'dark' : 'light';
+}
+
+const renderCustomIcon = (icon: SimpleIcon, theme: 'light' | 'dark') => {
   const bgHex = theme === 'light' ? '#f3f2ef' : '#080510';
   const fallbackHex = theme === 'light' ? '#6e6e73' : '#ffffff';
   const minContrastRatio = theme === 'dark' ? 2 : 1.2;
@@ -110,7 +125,7 @@ const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
 const TechSphereComponent = () => {
   const [data, setData] = useState<IconData | null>(null);
   const [loading, setLoading] = useState(true);
-  const theme = 'dark';
+  const iconTheme = useIconCloudTheme();
 
   useEffect(() => {
     const iconSlugs = [...new Set(techIcons)];
@@ -130,15 +145,15 @@ const TechSphereComponent = () => {
 
   const renderedIcons = useMemo(() => {
     if (!data) return null;
-    return Object.values(data.simpleIcons).map((icon: SimpleIcon) => renderCustomIcon(icon, theme));
-  }, [data, theme]);
+    return Object.values(data.simpleIcons).map((icon: SimpleIcon) => renderCustomIcon(icon, iconTheme));
+  }, [data, iconTheme]);
 
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
         <div className="animate-pulse flex flex-col items-center">
           <div className="w-16 h-16 bg-emerald-500/20 rounded-full"></div>
-          <p className="mt-4 text-gray-400">Loading visualization...</p>
+          <p className="mt-4 text-muted-foreground">Loading visualization...</p>
         </div>
       </div>
     );

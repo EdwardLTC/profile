@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { resumeContent } from '@/app/config/resume';
 import type { ResumeContact, ResumeRichPart } from '@/app/types/resume';
 
-const strongClass = 'text-white font-semibold';
+const strongClass = 'text-foreground font-semibold';
 
 function ResumeRichInline({ parts }: { parts: ResumeRichPart[] }) {
   return (
@@ -36,7 +36,7 @@ function ContactRow({ contact }: { contact: ResumeContact }) {
       ) : (
         <a
           href={contact.href}
-          className="text-blue-300 hover:text-emerald-400 transition-colors"
+          className="text-blue-700 dark:text-blue-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
         >
           {contact.text}
         </a>
@@ -102,15 +102,15 @@ const Resume: React.FC = () => {
         animate="visible"
       >
         <motion.div
-          className="resume-print-card relative w-full max-w-5xl overflow-hidden rounded-2xl border border-gray-700/50 bg-gray-800/30 backdrop-blur-sm shadow-xl shadow-black/20"
+          className="resume-print-card relative w-full max-w-5xl overflow-hidden rounded-2xl border border-border/80 bg-card/60 backdrop-blur-sm shadow-xl shadow-black/10 dark:shadow-black/25"
           variants={fadeUp}
         >
           <motion.header
-            className="relative border-b border-gray-700/50 px-6 py-8 sm:px-10"
+            className="relative border-b border-border/80 px-6 py-8 sm:px-10"
             variants={fadeUp}
           >
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
                 {header.firstName}
               </h2>
               <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
@@ -118,12 +118,12 @@ const Resume: React.FC = () => {
               </h2>
             </div>
 
-            <div className="mt-3 text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-400">
+            <div className="mt-3 text-xs sm:text-sm uppercase tracking-[0.25em] text-muted-foreground">
               {header.title}{' '}
-              <span className="text-blue-300">{header.tagline}</span>
+              <span className="text-blue-700 dark:text-blue-300">{header.tagline}</span>
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm text-gray-300">
+            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted-foreground">
               {header.contacts.map((contact, idx) => (
                 <ContactRow key={idx} contact={contact} />
               ))}
@@ -131,16 +131,16 @@ const Resume: React.FC = () => {
           </motion.header>
 
           <motion.section
-            className="border-b border-gray-700/50 px-6 py-8 sm:px-10 bg-gray-900/15"
+            className="border-b border-border/80 px-6 py-8 sm:px-10 bg-muted/30"
             variants={fadeUp}
           >
             <div className="flex items-center gap-3 mb-5">
-              <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300">
+              <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 dark:text-emerald-300">
                 {sectionTitles.careerPath}
               </div>
-              <div className="h-px flex-1 bg-gradient-to-r from-gray-700/70 to-transparent" />
+              <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
             </div>
-            <ul className="space-y-2.5 text-sm text-gray-300">
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
               {careerPath.lines.map((line, idx) => (
                 <li key={idx} className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
@@ -153,25 +153,25 @@ const Resume: React.FC = () => {
           </motion.section>
 
           <motion.div className="grid grid-cols-1 lg:grid-cols-12" variants={fadeUp}>
-            <main className="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-gray-700/50 px-6 py-8 sm:px-10">
+            <main className="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-border/80 px-6 py-8 sm:px-10">
               <motion.section className="mb-10" variants={fadeUp}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300">
+                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 dark:text-emerald-300">
                     {sectionTitles.experience}
                   </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-gray-700/70 to-transparent" />
+                  <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
                 </div>
 
                 <motion.div className="space-y-8" variants={container}>
                   {experience.map(job => (
                     <motion.div
                       key={job.company}
-                      className="pb-8 border-b border-gray-700/50 last:pb-0 last:border-b-0"
+                      className="pb-8 border-b border-border/80 last:pb-0 last:border-b-0"
                       variants={fadeUp}
                     >
                       <div className="flex items-start justify-between gap-4">
-                        <h3 className="text-lg font-semibold text-white">{job.company}</h3>
-                        <span className="shrink-0 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-300">
+                        <h3 className="text-lg font-semibold text-foreground">{job.company}</h3>
+                        <span className="shrink-0 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-800 dark:text-blue-300">
                           {job.dateRange}
                         </span>
                       </div>
@@ -181,10 +181,10 @@ const Resume: React.FC = () => {
                       </div>
 
                       {job.summary ? (
-                        <p className="mt-3 text-sm text-gray-300 leading-relaxed italic">{job.summary}</p>
+                        <p className="mt-3 text-sm text-muted-foreground leading-relaxed italic">{job.summary}</p>
                       ) : null}
 
-                      <ul className="mt-4 space-y-2 text-sm text-gray-300">
+                      <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                         {job.bullets.map((line, idx) => (
                           <li key={idx} className="flex gap-3">
                             <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
@@ -199,7 +199,7 @@ const Resume: React.FC = () => {
                         {job.tags.map(tag => (
                           <span
                             key={tag}
-                            className="px-3 py-1 text-xs rounded-full border bg-emerald-500/10 text-emerald-300 border-emerald-500/20"
+                            className="px-3 py-1 text-xs rounded-full border bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border-emerald-500/20"
                           >
                             {tag}
                           </span>
@@ -212,27 +212,27 @@ const Resume: React.FC = () => {
 
               <motion.section variants={fadeUp}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300">
+                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 dark:text-emerald-300">
                     {sectionTitles.projects}
                   </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-gray-700/70 to-transparent" />
+                  <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
                 </div>
 
                 <motion.div className="space-y-8" variants={container}>
                   {projects.map(project => (
                     <motion.div
                       key={project.title}
-                      className="pb-8 border-b border-gray-700/50 last:pb-0 last:border-b-0"
+                      className="pb-8 border-b border-border/80 last:pb-0 last:border-b-0"
                       variants={fadeUp}
                     >
-                      <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+                      <h3 className="text-lg font-semibold text-foreground">{project.title}</h3>
                       {project.subtitle ? (
-                        <div className="mt-1 text-xs text-gray-400">
+                        <div className="mt-1 text-xs text-muted-foreground">
                           <ResumeRichInline parts={project.subtitle} />
                         </div>
                       ) : null}
                       <a
-                        className="mt-2 inline-block text-xs text-blue-300 hover:text-emerald-400 transition-colors"
+                        className="mt-2 inline-block text-xs text-blue-700 dark:text-blue-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
                         href={project.linkHref}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -240,7 +240,7 @@ const Resume: React.FC = () => {
                         {project.linkLabel}
                       </a>
 
-                      <ul className="mt-4 space-y-2 text-sm text-gray-300">
+                      <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                         {project.bullets.map((line, idx) => (
                           <li key={idx} className="flex gap-3">
                             <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
@@ -255,7 +255,7 @@ const Resume: React.FC = () => {
                         {project.tags.map(tag => (
                           <span
                             key={tag}
-                            className="px-3 py-1 text-xs rounded-full border bg-emerald-500/10 text-emerald-300 border-emerald-500/20"
+                            className="px-3 py-1 text-xs rounded-full border bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border-emerald-500/20"
                           >
                             {tag}
                           </span>
@@ -267,28 +267,28 @@ const Resume: React.FC = () => {
               </motion.section>
             </main>
 
-            <aside className="lg:col-span-4 px-6 py-8 sm:px-10 bg-gray-900/20">
+            <aside className="lg:col-span-4 px-6 py-8 sm:px-10 bg-muted/25">
               <motion.section className="mb-10" variants={fadeUp}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300">
+                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 dark:text-emerald-300">
                     {sectionTitles.education}
                   </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-gray-700/70 to-transparent" />
+                  <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
                 </div>
 
                 <motion.div className="space-y-6" variants={container}>
                   {education.map(item => (
                     <motion.div
                       key={item.degree}
-                      className="pb-6 border-b border-gray-700/50 last:pb-0 last:border-b-0"
+                      className="pb-6 border-b border-border/80 last:pb-0 last:border-b-0"
                       variants={fadeUp}
                     >
-                      <div className="text-sm font-semibold text-white">{item.degree}</div>
+                      <div className="text-sm font-semibold text-foreground">{item.degree}</div>
                       <div className="mt-1 text-xs font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
                         {item.school}
                       </div>
-                      <div className="mt-2 text-xs text-gray-400">{item.date}</div>
-                      <div className="mt-3 text-sm text-gray-300 leading-relaxed">
+                      <div className="mt-2 text-xs text-muted-foreground">{item.date}</div>
+                      <div className="mt-3 text-sm text-muted-foreground leading-relaxed">
                         {item.specialization}
                         <br />
                         Thesis: <em>{item.thesisTitle}</em>
@@ -300,16 +300,16 @@ const Resume: React.FC = () => {
 
               <motion.section className="mb-10" variants={fadeUp}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300">
+                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 dark:text-emerald-300">
                     {sectionTitles.skills}
                   </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-gray-700/70 to-transparent" />
+                  <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
                 </div>
 
                 <motion.div variants={container}>
                   {skillGroups.map(group => (
                     <motion.div key={group.label} className="mb-6 last:mb-0" variants={fadeUp}>
-                      <div className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold mb-3">
+                      <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold mb-3">
                         {group.label}
                       </div>
                       <div className="flex flex-wrap gap-2">
@@ -319,8 +319,8 @@ const Resume: React.FC = () => {
                             className={[
                               'px-3 py-1 text-xs rounded-full border',
                               group.highlight
-                                ? 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20'
-                                : 'bg-gray-800/60 text-gray-300 border-gray-700/60',
+                                ? 'bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border-emerald-500/20'
+                                : 'bg-muted/80 text-muted-foreground border-border/60',
                             ].join(' ')}
                           >
                             {skill}
@@ -334,20 +334,20 @@ const Resume: React.FC = () => {
 
               <motion.section className="mb-10" variants={fadeUp}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300">
+                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 dark:text-emerald-300">
                     {sectionTitles.languages}
                   </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-gray-700/70 to-transparent" />
+                  <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
                 </div>
 
                 <motion.div variants={container}>
                   {languages.map(lang => (
                     <motion.div key={lang.name} className="mb-5 last:mb-0" variants={fadeUp}>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-white">{lang.name}</span>
-                        <span className="text-xs text-gray-400">{lang.level}</span>
+                        <span className="text-sm text-foreground">{lang.name}</span>
+                        <span className="text-xs text-muted-foreground">{lang.level}</span>
                       </div>
-                      <div className="mt-2 h-1.5 rounded-full bg-gray-700/60 overflow-hidden">
+                      <div className="mt-2 h-1.5 rounded-full bg-muted overflow-hidden">
                         <div
                           className="h-full bg-gradient-to-r from-emerald-400 to-blue-500"
                           style={{ width: `${lang.pct}%` }}
@@ -360,13 +360,13 @@ const Resume: React.FC = () => {
 
               <motion.section variants={fadeUp}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300">
+                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 dark:text-emerald-300">
                     {sectionTitles.awards}
                   </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-gray-700/70 to-transparent" />
+                  <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
                 </div>
 
-                <motion.div className="space-y-3 text-sm text-gray-300" variants={container}>
+                <motion.div className="space-y-3 text-sm text-muted-foreground" variants={container}>
                   {awards.map(award => (
                     <motion.div key={award} className="flex gap-3" variants={fadeUp}>
                       <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-400 shrink-0" />
@@ -379,16 +379,16 @@ const Resume: React.FC = () => {
           </motion.div>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-2 sm:gap-0 sm:items-center sm:justify-between border-t border-gray-700/50 px-6 py-4 sm:px-10 bg-gray-900/20"
+            className="flex flex-col sm:flex-row gap-2 sm:gap-0 sm:items-center sm:justify-between border-t border-border/80 px-6 py-4 sm:px-10 bg-muted/25"
             variants={fadeUp}
           >
-            <span className="text-xs tracking-[0.25em] uppercase text-gray-400">
+            <span className="text-xs tracking-[0.25em] uppercase text-muted-foreground">
               {footer.fullName} ·{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
                 {footer.roleLabel}
               </span>
             </span>
-            <span className="text-xs tracking-[0.25em] uppercase text-gray-500">{footer.locationDate}</span>
+            <span className="text-xs tracking-[0.25em] uppercase text-muted-foreground/80">{footer.locationDate}</span>
           </motion.div>
         </motion.div>
       </motion.div>
