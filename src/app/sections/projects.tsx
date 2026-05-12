@@ -48,6 +48,11 @@ const Projects: React.FC = () => {
   const getTagColor = (tag: string) => {
     const tagColors: Record<string, string> = {
       TypeScript: 'bg-blue-600/20 text-blue-300 border-blue-600/20',
+      Express: 'bg-neutral-500/20 text-neutral-200 border-neutral-500/30',
+      MongoDB: 'bg-green-600/20 text-green-200 border-green-600/20',
+      Mongoose: 'bg-green-700/20 text-green-200 border-green-700/20',
+      Elasticsearch: 'bg-teal-600/20 text-teal-200 border-teal-600/20',
+      'Socket.IO': 'bg-fuchsia-600/20 text-fuchsia-200 border-fuchsia-600/20',
       NestJS: 'bg-red-500/20 text-red-200 border-red-500/20',
       Go: 'bg-cyan-600/20 text-cyan-300 border-cyan-600/20',
       PostgreSQL: 'bg-blue-700/20 text-blue-300 border-blue-700/20',
@@ -59,6 +64,9 @@ const Projects: React.FC = () => {
       'ASP.NET Core': 'bg-purple-500/20 text-purple-200 border-purple-500/20',
       Solidity: 'bg-gray-500/20 text-gray-200 border-gray-500/20',
       Openzeppelin: 'bg-indigo-500/20 text-indigo-200 border-indigo-500/20',
+      Hardhat: 'bg-yellow-500/20 text-yellow-200 border-yellow-500/20',
+      Ethers: 'bg-violet-600/20 text-violet-200 border-violet-600/20',
+      Azure: 'bg-sky-500/20 text-sky-200 border-sky-500/20',
       'AWS EC2': 'bg-amber-500/20 text-amber-200 border-amber-500/20',
       RDS: 'bg-amber-500/20 text-amber-200 border-amber-500/20',
       S3: 'bg-amber-500/20 text-amber-200 border-amber-500/20',
@@ -90,8 +98,9 @@ const Projects: React.FC = () => {
           </h2>
           <div className="mt-4 h-1 w-20 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full" />
           <p className="mt-6 text-gray-300 max-w-2xl mx-auto">
-            Backend-focused projects showing system design, service communication, provider
-            integrations, transactions, event-driven flows, and production operations.
+            Backend-focused projects spanning InsurTech operations, polyglot microservices, social
+            APIs with search and real-time WebSockets, Web3 marketplace backends with on-chain event
+            ingestion, and production cloud infrastructure.
           </p>
         </motion.div>
 

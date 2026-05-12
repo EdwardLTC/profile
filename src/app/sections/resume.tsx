@@ -347,6 +347,150 @@ const Resume: React.FC = () => {
                       ))}
                     </div>
                   </motion.div>
+
+                  <motion.div
+                    className="pb-8 border-b border-gray-700/50 last:pb-0 last:border-b-0"
+                    variants={fadeUp}
+                  >
+                    <h3 className="text-lg font-semibold text-white">Meta Chain API</h3>
+                    <div className="mt-1 text-xs text-gray-400">
+                      UIT thesis — <em>MetaChain - NFT Marketplace</em>
+                    </div>
+                    <a
+                      className="mt-2 inline-block text-xs text-blue-300 hover:text-emerald-400 transition-colors"
+                      href="https://github.com/EdwardLTC/meta-chain-api"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      github.com/EdwardLTC/meta-chain-api
+                    </a>
+
+                    <ul className="mt-4 space-y-2 text-sm text-gray-300">
+                      {[
+                        <>
+                          NestJS API for{' '}
+                          <strong className="text-white font-semibold">
+                            collections, tokens, listings, and likes
+                          </strong>{' '}
+                          with Prisma on PostgreSQL, Redis, JWT, and Swagger.
+                        </>,
+                        <>
+                          <strong className="text-white font-semibold">Chain listener</strong> over
+                          WebSocket: replay missed logs, cursor-based ingestion, reconcile domain
+                          state with Factory / Marketplace events.
+                        </>,
+                        <>
+                          <strong className="text-white font-semibold">Hardhat</strong> contracts
+                          (OpenZeppelin) and deployment scripts;{' '}
+                          <strong className="text-white font-semibold">ethers v6</strong> for RPC
+                          reads and wallet-signed listing flows.
+                        </>,
+                        <>
+                          Off-chain media via{' '}
+                          <strong className="text-white font-semibold">
+                            IPFS (Pinata / NFT.Storage)
+                          </strong>{' '}
+                          and optional <strong className="text-white font-semibold">Azure Blob</strong>{' '}
+                          storage.
+                        </>,
+                      ].map((item, idx) => (
+                        <li key={idx} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {[
+                        'NestJS',
+                        'Prisma',
+                        'PostgreSQL',
+                        'Redis',
+                        'Solidity',
+                        'Hardhat',
+                        'OpenZeppelin',
+                        'TypeScript',
+                      ].map(tag => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 text-xs rounded-full border bg-emerald-500/10 text-emerald-300 border-emerald-500/20"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    className="pb-8 border-b border-gray-700/50 last:pb-0 last:border-b-0"
+                    variants={fadeUp}
+                  >
+                    <h3 className="text-lg font-semibold text-white">DogDom API</h3>
+                    <div className="mt-1 text-xs text-gray-400">
+                      FPT Polytechnic thesis — <em>Dogdom – Social Network for Pet Lovers</em>
+                    </div>
+                    <a
+                      className="mt-2 inline-block text-xs text-blue-300 hover:text-emerald-400 transition-colors"
+                      href="https://github.com/EdwardLTC/dogdom-api"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      github.com/EdwardLTC/dogdom-api
+                    </a>
+
+                    <ul className="mt-4 space-y-2 text-sm text-gray-300">
+                      {[
+                        <>
+                          <strong className="text-white font-semibold">Express + TypeScript</strong>{' '}
+                          REST API using routing-controllers, class-validator, and Swagger/OpenAPI
+                          docs.
+                        </>,
+                        <>
+                          <strong className="text-white font-semibold">MongoDB + Mongoose</strong>{' '}
+                          for domain models;{' '}
+                          <strong className="text-white font-semibold">Redis / Redis OM</strong> for
+                          cache-oriented data paths.
+                        </>,
+                        <>
+                          <strong className="text-white font-semibold">Socket.IO</strong> for
+                          real-time features; <strong className="text-white font-semibold">Elasticsearch</strong>{' '}
+                          for search-heavy queries.
+                        </>,
+                        <>
+                          <strong className="text-white font-semibold">Azure</strong> integrations
+                          (Blob, Notification Hubs, Communication Email) and{' '}
+                          <strong className="text-white font-semibold">GitHub Actions → Azure Web Apps</strong>{' '}
+                          CI/CD with PM2/Docker-style deploy flows.
+                        </>,
+                      ].map((item, idx) => (
+                        <li key={idx} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {[
+                        'TypeScript',
+                        'Express',
+                        'MongoDB',
+                        'Mongoose',
+                        'Redis',
+                        'Socket.IO',
+                        'Elasticsearch',
+                        'Azure',
+                      ].map(tag => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 text-xs rounded-full border bg-emerald-500/10 text-emerald-300 border-emerald-500/20"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
                 </motion.div>
               </motion.section>
             </main>
@@ -420,7 +564,7 @@ const Resume: React.FC = () => {
                     {
                       label: 'Core',
                       highlight: true,
-                      items: ['TypeScript', 'NestJS', 'Node.js', 'PostgreSQL'],
+                      items: ['TypeScript', 'NestJS', 'Node.js', 'Express', 'PostgreSQL'],
                     },
                     {
                       label: 'Architecture',
@@ -431,17 +575,27 @@ const Resume: React.FC = () => {
                         'Saga Pattern',
                         'gRPC',
                         'Outbox Pattern',
+                        'On-chain event ingestion',
                       ],
                     },
                     {
                       label: 'Other Languages',
                       highlight: false,
-                      items: ['Spring Boot', 'ASP.Net Core', 'Go'],
+                      items: ['Spring Boot', 'ASP.Net Core', 'Go', 'Solidity'],
                     },
                     {
                       label: 'Infra & Tools',
                       highlight: false,
-                      items: ['AWS', 'Apache Kafka', 'Redis', 'Docker', 'Prisma'],
+                      items: [
+                        'AWS',
+                        'Apache Kafka',
+                        'Redis',
+                        'Docker',
+                        'Prisma',
+                        'Hardhat',
+                        'MongoDB',
+                        'Elasticsearch',
+                      ],
                     },
                   ].map(group => (
                     <motion.div key={group.label} className="mb-6 last:mb-0" variants={fadeUp}>
