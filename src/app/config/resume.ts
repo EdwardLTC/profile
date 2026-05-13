@@ -150,6 +150,22 @@ export const resumeContent: ResumeContent = {
             text: ' (Audit / AuditEvent / AuditEntry / AuditReadLog) for compliance.',
           },
         ],
+        [
+          { kind: 'text', text: 'Built a ' },
+          { kind: 'strong', text: 'multi-tenant SaaS platform' },
+          {
+            kind: 'text',
+            text: ' enabling partners to lease and operate isolated instances of the system.',
+          },
+        ],
+        [
+          { kind: 'text', text: 'Designed and implemented an ' },
+          { kind: 'strong', text: 'affiliate tracking & commission system' },
+          {
+            kind: 'text',
+            text: ' for publishers and partner campaigns.',
+          },
+        ],
       ],
       tags: ['NestJS', 'Prisma', 'PostgreSQL', 'AWS EC2', 'RDS', 'S3', 'TypeScript'],
     },
