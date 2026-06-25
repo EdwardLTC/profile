@@ -181,7 +181,9 @@ const Resume: React.FC = () => {
                       </div>
 
                       {job.summary ? (
-                        <p className="mt-3 text-sm text-muted-foreground leading-relaxed italic">{job.summary}</p>
+                        <p className="mt-3 text-sm text-muted-foreground leading-relaxed italic">
+                          {job.summary}
+                        </p>
                       ) : null}
 
                       <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
@@ -342,17 +344,16 @@ const Resume: React.FC = () => {
 
                 <motion.div variants={container}>
                   {languages.map(lang => (
-                    <motion.div key={lang.name} className="mb-5 last:mb-0" variants={fadeUp}>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-foreground">{lang.name}</span>
-                        <span className="text-xs text-muted-foreground">{lang.level}</span>
-                      </div>
-                      <div className="mt-2 h-1.5 rounded-full bg-muted overflow-hidden">
-                        <div
-                          className="h-full bg-gradient-to-r from-emerald-400 to-blue-500"
-                          style={{ width: `${lang.pct}%` }}
-                        />
-                      </div>
+                    <motion.div key={lang.name} className="mb-5 last:mb-0 " variants={fadeUp}>
+                      <span
+                        key={lang.name}
+                        className={[
+                          'px-3 py-1 text-xs rounded-full border',
+                          'bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border-emerald-500/20',
+                        ].join(' ')}
+                      >
+                        {lang.name}
+                      </span>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -366,7 +367,10 @@ const Resume: React.FC = () => {
                   <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
                 </div>
 
-                <motion.div className="space-y-3 text-sm text-muted-foreground" variants={container}>
+                <motion.div
+                  className="space-y-3 text-sm text-muted-foreground"
+                  variants={container}
+                >
                   {awards.map(award => (
                     <motion.div key={award} className="flex gap-3" variants={fadeUp}>
                       <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-400 shrink-0" />
@@ -388,7 +392,9 @@ const Resume: React.FC = () => {
                 {footer.roleLabel}
               </span>
             </span>
-            <span className="text-xs tracking-[0.25em] uppercase text-muted-foreground/80">{footer.locationDate}</span>
+            <span className="text-xs tracking-[0.25em] uppercase text-muted-foreground/80">
+              {footer.locationDate}
+            </span>
           </motion.div>
         </motion.div>
       </motion.div>

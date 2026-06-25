@@ -391,6 +391,7 @@ export const resumeContent: ResumeContent = {
   awards: [
     'Academic Preparatory English Level 3 — Topnotch 2',
     'Finalist — Startup Kite Competition',
+    'Top 3 Outstanding Projects Award at the "Jetpack Compose – Mobile Programming Trends" Workshop',
   ],
 
   footer: {
