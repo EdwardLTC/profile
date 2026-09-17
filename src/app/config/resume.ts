@@ -166,6 +166,13 @@ export const resumeContent: ResumeContent = {
             text: ' for publishers and partner campaigns.',
           },
         ],
+        [
+          { kind: 'text', text: 'Introduced ' },
+          { kind: 'strong', text: 'dynamic encrypted ' },
+          { kind: 'text', text: ' base on timestamp for public API requests to ' },
+          { kind: 'strong', text: 'prevent replay attacks ' },
+          { kind: 'text', text: 'and ensure request integrity.' },
+        ],
       ],
       tags: ['NestJS', 'Prisma', 'PostgreSQL', 'AWS EC2', 'RDS', 'S3', 'TypeScript'],
     },
