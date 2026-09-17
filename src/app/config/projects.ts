@@ -36,6 +36,7 @@ export const projects: Project[] = [
       'Built audit logging and change history for compliance workflows.',
       'Built a multi-tenant SaaS platform enabling partners to lease and operate isolated instances of the system.',
       'Designed and implemented an affiliate tracking & commission system for publishers and partner campaigns.',
+      'Introduced dynamic encrypted base on timestamp for public API requests to prevent replay attacks and ensure request integrity.',
     ],
     impact:
       'Production backend experience across provider integrations, payment operations, auditability, and AWS infrastructure.',

@@ -5,7 +5,7 @@ export const resumeContent: ResumeContent = {
     firstName: 'LÊ THÀNH',
     lastName: 'CÔNG',
     title: 'Junior Lead Backend Engineer',
-    tagline: '// InsurTech · FinTech · Microservices',
+    tagline: '// InsurTech · FinTech',
     contacts: [
       { kind: 'plain', text: 'Hồ Chí Minh City, Việt Nam' },
       { kind: 'plain', text: '0794628973' },
