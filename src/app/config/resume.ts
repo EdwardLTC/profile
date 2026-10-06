@@ -4,7 +4,7 @@ export const resumeContent: ResumeContent = {
   header: {
     firstName: 'LÊ THÀNH',
     lastName: 'CÔNG',
-    title: 'Junior Lead Backend Engineer',
+    title: 'Junior Lead Backend Engineer - Backend Integration',
     tagline: '// InsurTech · FinTech',
     contacts: [
       { kind: 'plain', text: 'Hồ Chí Minh City, Việt Nam' },
@@ -206,6 +206,54 @@ export const resumeContent: ResumeContent = {
 
   projects: [
     {
+      title: 'Apple Container Manager',
+      subtitle: [
+        { kind: 'text', text: 'JetBrains Marketplace — ' },
+        { kind: 'em', text: 'Public IntelliJ Platform Plugin' },
+      ],
+      linkLabel: 'plugins.jetbrains.com/plugin/33602-apple-container-manager',
+      linkHref: 'https://plugins.jetbrains.com/plugin/33602-apple-container-manager',
+      bullets: [
+        [
+          { kind: 'text', text: 'Architected and published a ' },
+          { kind: 'strong', text: 'native JetBrains IDE plugin' },
+          {
+            kind: 'text',
+            text: " in Kotlin for managing Apple's container runtime inside IntelliJ IDEA.",
+          },
+        ],
+        [
+          { kind: 'strong', text: 'Full resource management' },
+          {
+            kind: 'text',
+            text: ': dedicated Tool Window & Services view tabs for Containers, Images, Volumes, Networks, and System daemon operations.',
+          },
+        ],
+        [
+          { kind: 'strong', text: 'Run Configurations & Gutter Markers' },
+          {
+            kind: 'text',
+            text: ' for launching containers, building Dockerfiles, and Docker Compose orchestration with live streaming console logs.',
+          },
+        ],
+        [
+          { kind: 'strong', text: 'Search Everywhere integration' },
+          {
+            kind: 'text',
+            text: ' allowing developers to quickly discover and inspect container assets directly across the IDE.',
+          },
+        ],
+      ],
+      tags: [
+        'Kotlin',
+        'IntelliJ Platform SDK',
+        'Apple Container',
+        'Docker Compose',
+        'macOS',
+        'Gradle',
+      ],
+    },
+    {
       title: 'E-Commerce Microservice System',
       linkLabel: 'github.com/EdwardLTC/e-commerce-microservice',
       linkHref: 'https://github.com/EdwardLTC/e-commerce-microservice',
@@ -372,13 +420,14 @@ export const resumeContent: ResumeContent = {
     {
       label: 'Other Languages',
       highlight: false,
-      items: ['Spring Boot', 'ASP.Net Core', 'Go', 'Solidity'],
+      items: ['Kotlin', 'Spring Boot', 'ASP.Net Core', 'Go', 'Solidity'],
     },
     {
       label: 'Infra & Tools',
       highlight: false,
       items: [
         'AWS',
+        'IntelliJ Platform SDK',
         'Apache Kafka',
         'Redis',
         'Docker',

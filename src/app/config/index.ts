@@ -31,9 +31,13 @@ export const portfolioConfig: PortfolioConfig = {
     home: {
       greeting: "Hi, I'm",
       name: 'Edward LTC',
-      typingTexts: ['Building Backend Systems', 'Solving complex problems'],
+      typingTexts: [
+        'Building Backend Systems',
+        'Engineering Developer Tools',
+        'Solving complex problems',
+      ],
       description:
-        'Backend-focused software engineer specialized in building scalable microservices and distributed systems.',
+        'Backend-focused software engineer and developer tools creator, specialized in scalable microservices, distributed systems, and IDE developer tooling.',
       scrollIndicatorText: 'Scroll to explore',
     },
 
@@ -41,41 +45,42 @@ export const portfolioConfig: PortfolioConfig = {
       title: 'About',
       subtitle: 'Me',
       bio: [
-        "Hi, I'm a Software Engineering enthusiast living in Việt Nam. I enjoy turning creative ideas into working solutions in my spare time.",
-        "I've been exploring tech for about 4 years, with interests spanning across different development areas. I'm fascinated by intuitive digital experiences that just feel right.",
-        "When I'm not working on code professionally, you'll find me reading about emerging technologies, contributing to open-source projects, and constantly picking up new skills and hobbies.",
+        "I'm Lê Thành Công (Edward) — a backend engineer based in Hồ Chí Minh City, Việt Nam. I specialize in building production-grade backend systems: from InsurTech & FinTech platforms to distributed microservices and developer tooling.",
+        "Since July 2023, I've been the sole backend engineer at FISSolution, owning the full backend end-to-end — refactoring legacy flows, building payment and partner integrations, and supporting day-to-day business operations from the system side. Alongside that, I spent two years freelancing for FPT Education, shipping backend APIs for three internal mobile apps used across campuses.",
+        "Outside of work, I build for fun and learning — most recently publishing Apple Container Manager, an open-source JetBrains IDE plugin for managing Apple's native container runtime. I'm also currently pursuing a B.Sc. in Information Technology at UIT while wrapping up my applied degree at FPT Polytechnic.",
       ],
       details: [
         { label: 'Location', value: 'Hồ Chí Minh City, Việt Nam' },
-        { label: 'Experience', value: '4+ Years Experience' },
+        { label: 'Experience', value: '3+ Years Professional' },
+        { label: 'Status', value: 'Open to opportunities' },
       ],
       qualities: [
         {
           icon: 'Rocket',
-          title: 'Problem Solver',
+          title: 'Solo Ownership',
           description:
-            'I approach complex challenges with analytical thinking and break them down into manageable solutions.',
+            'Comfortable owning a full backend system alone — from architecture decisions and code reviews to production incidents and business support.',
           gradient: 'from-emerald-500 to-blue-500',
         },
         {
           icon: 'Code',
           title: 'Clean Code Advocate',
           description:
-            'I value maintainable, well-structured code that follows best practices and industry standards.',
+            'I refactor legacy codebases into clean, maintainable structures and hold myself to high standards on API design and code quality.',
           gradient: 'from-blue-500 to-violet-500',
         },
         {
           icon: 'Lightbulb',
-          title: 'System Designer',
+          title: 'Builder by Nature',
           description:
-            'I architect backend solutions with a focus on clean design, reliability, and long-term scalability.',
+            'I build things outside of work too — open-source tools, architecture experiments, and thesis projects that push me into new domains.',
           gradient: 'from-purple-500 to-indigo-500',
         },
         {
           icon: 'BarChart3',
-          title: 'Scalable Architect',
+          title: 'Integration-Focused',
           description:
-            'I design backend systems and microservices that are reliable, scalable, and easy to maintain.',
+            'My sweet spot is complex integrations: insurance providers, payment gateways, partner systems, event-driven flows, and on-chain/off-chain sync.',
           gradient: 'from-indigo-500 to-cyan-500',
         },
       ],

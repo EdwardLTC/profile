@@ -1,5 +1,4 @@
 'use client';
-import Head from 'next/head';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Skills } from '@/app/sections/skills';
 import { ConnectWithMe } from '@/app/sections/connect';
@@ -68,13 +67,6 @@ export default function Page() {
 
   return (
     <div className="bg-gradient-to-br from-page-from via-page-via to-page-to min-h-screen text-foreground">
-      <Head>
-        <title>Edward LTC | Portfolio</title>
-        <meta
-          name="description"
-          content="Personal portfolio website showcasing projects and skills"
-        />
-      </Head>
 
       <div className="fixed top-3.5 right-6 z-50 flex items-center gap-2 lg:hidden">
         <ThemeToggle />

@@ -1,24 +1,7 @@
-/*
- * Copyright 2025 Praveen Kumar
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { skills } from '@/app/config/skills';
-import { isMinimal } from '@/app/utils';
 
 const CategoryIcons = {
   Backend: () => (
@@ -134,15 +117,28 @@ const CategoryIcons = {
       <path d="M4 18l8 5 8-5" />
     </svg>
   ),
+  'Developer Tools': () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#38bdf8"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="w-4 h-4"
+    >
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  ),
 };
 
 const Skills: React.FC = () => {
-  const sectionVariants = isMinimal
-    ? { initial: {}, animate: {} }
-    : {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-      };
+  const sectionVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+  };
 
   const getCategoryIcon = (category: string) => {
     const Icon = CategoryIcons[category as keyof typeof CategoryIcons] || CategoryIcons.Default;
@@ -169,8 +165,8 @@ const Skills: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
-          initial={isMinimal ? {} : { opacity: 0, y: 20 }}
-          whileInView={isMinimal ? {} : { opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.5 }}
         >
@@ -193,7 +189,7 @@ const Skills: React.FC = () => {
               key={skillGroup.category}
               initial={sectionVariants.initial}
               whileInView={sectionVariants.animate}
-              transition={isMinimal ? {} : { duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true, margin: '-100px' }}
               className="bg-card/70 backdrop-blur-sm rounded-2xl p-6 border border-border/80 hover:border-emerald-500/30 transition-all duration-300 shadow-lg"
             >

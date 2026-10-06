@@ -1,19 +1,3 @@
-/*
- * Copyright 2025 Praveen Kumar
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -22,18 +6,14 @@ import { ArrowRight, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { portfolioConfig } from '@/app/config';
 import { Button } from '@/app/components/button';
 import dynamic from 'next/dynamic';
-import { isMinimal } from '@/app/utils';
 import { useRouter } from 'next/navigation';
 
 const TechSphere = dynamic(
-  async () => {
-    if (isMinimal) {
-      return Promise.resolve(() => null);
-    }
-    const mod = await import('@/app/components/tech-sphere');
-    return mod.TechSphere;
-  },
-  { ssr: false }
+  () => import('@/app/components/tech-sphere').then(mod => mod.TechSphere),
+  {
+    ssr: false,
+    loading: () => <div className="h-full w-full" />,
+  }
 );
 
 interface HomeProps {
@@ -52,8 +32,6 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
 
   // Handle typing effect
   useEffect(() => {
-    if (isMinimal) return;
-
     if (index < config.typingTexts[currentPhrase].length) {
       const timeout = setTimeout(() => {
         setText(prev => prev + config.typingTexts[currentPhrase][index]);
@@ -206,24 +184,13 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
             {/* Animated typing text */}
             <motion.div variants={itemVariants} className="h-12 mb-8 overflow-hidden">
               <div className="relative h-full flex items-center justify-center lg:justify-start">
-                {isMinimal ? (
-                  // For mobile
-                  <span className="text-xl sm:text-2xl text-muted-foreground flex justify-center flex-wrap">
-                    <span className="mr-2">I&apos;m passionate about</span>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
-                      {config.typingTexts[0]}
-                    </span>
+                <span className="text-xl sm:text-2xl text-muted-foreground flex flex-wrap justify-center lg:justify-start">
+                  <span className="mr-2">I&apos;m passionate about</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500 min-h-[1.75rem]">
+                    {text}
                   </span>
-                ) : (
-                  // For desktop
-                  <span className="text-xl sm:text-2xl text-muted-foreground flex flex-wrap">
-                    <span className="mr-2">I&apos;m passionate about</span>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
-                      {text}
-                    </span>
-                    <span className="animate-blink ml-1 h-6 w-0.5 bg-emerald-400 self-center"></span>
-                  </span>
-                )}
+                  <span className="animate-blink ml-1 h-6 w-0.5 bg-emerald-400 self-center"></span>
+                </span>
               </div>
             </motion.div>
 
@@ -260,19 +227,17 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
             </motion.div>
           </motion.div>
           {/* Interactive Tech Sphere */}
-          {!isMinimal && (
-            <motion.div
-              className="lg:col-span-5 h-[280px] sm:h-[320px] md:h-[340px] lg:h-[350px] relative mt-2 sm:mt-0 mb-16 sm:mb-16"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-            >
-              {/* TechSphere component */}
-              <TechSphere />
+          <motion.div
+            className="hidden md:block lg:col-span-5 h-[280px] sm:h-[320px] md:h-[340px] lg:h-[350px] relative mt-2 sm:mt-0 mb-16 sm:mb-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            {/* TechSphere component */}
+            <TechSphere />
 
-              <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-48 h-12 bg-gradient-to-t from-background to-transparent blur-lg"></div>
-            </motion.div>
-          )}
+            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-48 h-12 bg-gradient-to-t from-background to-transparent blur-lg"></div>
+          </motion.div>
         </div>
       </motion.div>
 

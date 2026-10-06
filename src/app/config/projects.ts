@@ -1,28 +1,45 @@
-/*
- * Copyright 2025 Praveen Kumar
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import { Project } from '../types/types';
 
 export const projects: Project[] = [
   {
     id: 1,
+    title: 'Apple Container Manager',
+    description:
+      "Native JetBrains IDE plugin for managing Apple's container runtime. Delivers seamless container lifecycle management, image builds, Docker Compose orchestration, and native Run Configurations directly in IntelliJ IDEA.",
+    role: 'Creator & Maintainer',
+    problem:
+      "Apple's native container runtime on macOS lacked dedicated IDE tooling, leaving developers without a graphical interface to manage containers, stream logs, inspect resources, or orchestrate compose files directly inside JetBrains IDEs.",
+    highlights: [
+      'Published publicly on JetBrains Marketplace with full IntelliJ Platform SDK integration.',
+      'Engineered dedicated Tool Window and Services view tabs for Containers, Images, Volumes, Networks, and System daemon services.',
+      'Built native IntelliJ Run Configurations to launch and debug containers with streaming console output and ANSI color formatting.',
+      'Added gutter line markers for single-click Dockerfile image builds and Docker Compose up/down orchestration.',
+      'Implemented Search Everywhere contributor to instantly locate, inspect, and manage containers and images across the IDE.',
+      'Architected asynchronous process runners in Kotlin with Coroutines, custom ProcessHandlers, and state persistence.',
+    ],
+    impact:
+      'Publicly available on JetBrains Marketplace, empowering macOS developers with a native, high-performance container management workflow inside IntelliJ-based IDEs.',
+    tags: [
+      'Kotlin',
+      'IntelliJ Platform SDK',
+      'Apple Container',
+      'Docker Compose',
+      'macOS',
+      'Gradle',
+    ],
+    githubLink: 'https://github.com/EdwardLTC/AppleContainerManager',
+    marketplaceLink: 'https://plugins.jetbrains.com/plugin/33602-apple-container-manager',
+    liveLink: 'https://plugins.jetbrains.com/plugin/33602-apple-container-manager',
+    liveLinkLabel: 'Marketplace',
+    type: 'IDE Plugin & DevTools',
+    category: 'personal',
+  },
+  {
+    id: 2,
     title: 'FISSolution',
     description:
       'InsurTech and FinTech product suite built with a modular monolith backend that is prepared for future microservice separation.',
-    role: 'Junior Lead Backend Engineer',
+    role: 'Junior Lead Backend Engineer - Backend Integration',
     problem:
       'Insurance and finance workflows require stable provider integrations, order and contract lifecycle management, partner tracking, payouts, and compliance-ready audit history.',
     highlights: [
@@ -39,13 +56,31 @@ export const projects: Project[] = [
       'Introduced dynamic encrypted base on timestamp for public API requests to prevent replay attacks and ensure request integrity.',
     ],
     impact:
-      'Production backend experience across provider integrations, payment operations, auditability, and AWS infrastructure.',
+      'Sole backend engineer owning the full system end-to-end — refactored legacy codebases into clean, maintainable flows for order creation and contract management, shipped new product features, and served as the primary technical point of contact for business operations support. Responsible for keeping production stable while continuously extending the platform across insurance, payments, and partner integrations.',
     tags: ['NestJS', 'Prisma', 'PostgreSQL', 'AWS EC2', 'RDS', 'S3', 'TypeScript'],
     liveLink: 'https://fiss.com.vn',
     type: 'Lead Backend',
+    category: 'professional',
   },
   {
-    id: 2,
+    id: 6,
+    title: 'FPT Education',
+    description:
+      'Freelance backend contractor for FPT Education — built and maintained backend APIs powering three internal mobile applications used across FPT Polytechnic campuses.',
+    role: 'Backend Freelancer',
+    highlights: [
+      "MyFPS — Parent-facing app to monitor children's learning progress in real time.",
+      'MyFPL — Student app for registering school services, viewing schedules and grades.',
+      'FPL Save Electricity — IoT device management app for energy monitoring in school environments.',
+    ],
+    impact:
+      'Delivered production backend services for three apps actively used by students, parents, and staff across FPT Polytechnic.',
+    tags: ['NestJS', 'Node.js', 'PostgreSQL', 'Socket.IO'],
+    type: 'Freelance Contract',
+    category: 'professional',
+  },
+  {
+    id: 3,
     title: 'E-Commerce Microservice System',
     description:
       'Polyglot e-commerce backend designed around microservices, distributed transactions, and event-driven communication.',
@@ -65,9 +100,10 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/EdwardLTC/e-commerce-microservice',
     liveLink: '',
     type: 'Backend',
+    category: 'personal',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Meta Chain API',
     description:
       'NestJS backend for the MetaChain NFT marketplace thesis: collections, tokens, listings, and likes with Prisma on PostgreSQL, Redis, JWT auth, Swagger, and off-chain media via IPFS/Pinata and optional Azure Blob.',
@@ -98,9 +134,10 @@ export const projects: Project[] = [
     liveLink: '',
     type: 'Backend & Smart Contract',
     githubLink: 'https://github.com/EdwardLTC/meta-chain-api',
+    category: 'personal',
   },
   {
-    id: 4,
+    id: 5,
     title: 'DogDom API',
     description:
       'TypeScript Express backend for the DogDom pet social network (FPT Polytechnic thesis): REST APIs with routing-controllers, MongoDB via Mongoose, Redis caching with Redis OM, Socket.IO for real-time features, and Elasticsearch for search — deployed on Azure with CI/CD.',
@@ -126,8 +163,8 @@ export const projects: Project[] = [
       'Elasticsearch',
       'Azure',
     ],
-    liveLink: 'http://dogdom.eastus.cloudapp.azure.com/api-docs/',
     type: 'Backend',
     githubLink: 'https://github.com/EdwardLTC/dogdom-api',
+    category: 'personal',
   },
 ];

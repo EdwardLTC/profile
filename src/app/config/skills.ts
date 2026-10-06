@@ -1,19 +1,3 @@
-/*
- * Copyright 2025 Praveen Kumar
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import { Skill } from '../types/types';
 
 export const skills: Skill[] = [
@@ -129,6 +113,31 @@ export const skills: Skill[] = [
         name: 'Event-Driven',
         color: '#4CAF50',
         icon: 'https://cdn-icons-png.flaticon.com/512/906/906361.png',
+      },
+    ],
+  },
+  {
+    category: 'Developer Tools',
+    technologies: [
+      {
+        name: 'Kotlin',
+        color: '#7F52FF',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg',
+      },
+      {
+        name: 'IntelliJ Platform',
+        color: '#FE315D',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg',
+      },
+      {
+        name: 'Docker',
+        color: '#2496ED',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+      },
+      {
+        name: 'Git',
+        color: '#F05032',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
       },
     ],
   },
