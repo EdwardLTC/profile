@@ -54,6 +54,7 @@ export const projects: Project[] = [
       'Built a multi-tenant SaaS platform enabling partners to lease and operate isolated instances of the system.',
       'Designed and implemented an affiliate tracking & commission system for publishers and partner campaigns.',
       'Introduced dynamic encrypted base on timestamp for public API requests to prevent replay attacks and ensure request integrity.',
+      'Integrated MISA integration for automated invoice generation for clients',
     ],
     impact:
       'Sole backend engineer owning the full system end-to-end — refactored legacy codebases into clean, maintainable flows for order creation and contract management, shipped new product features, and served as the primary technical point of contact for business operations support. Responsible for keeping production stable while continuously extending the platform across insurance, payments, and partner integrations.',

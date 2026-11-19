@@ -92,7 +92,7 @@ export const skills: Skill[] = [
       {
         name: 'AWS',
         color: '#FF9900',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+        icon: 'https://raw.githubusercontent.com/devicons/devicon/v2.18.0/icons/amazonwebservices/amazonwebservices-original.svg',
       },
       {
         name: 'Azure',
